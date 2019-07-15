@@ -29,26 +29,27 @@ public class DepartmentListController implements Initializable{
 	
 	@FXML
 	public void onBtNewAction() {
-		System.out.println("Working");
+		
 	}
 	
 	
-	
 	@Override
-	public void initialize(URL url, ResourceBundle rb) {
+	public void initialize(URL url, ResourceBundle rb) {		
 		initializeNodes();
 	}
 
 	private void initializeNodes() {
+		//iniciar o comportamento das colunas
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
 		
-		//pegar referencia para o Stage
-		Stage stage = (Stage)Main.getMainScene().getWindow();
+		//fazer a table view "grudar" nas bordas
+		Stage stage = (Stage) Main.getMainScene().getWindow();
 		
-		//fazer com que a tabela siga de acordo com a borda do programa
+		//table view department acompanhar janela
 		tableViewDepartment.prefHeightProperty().bind(stage.heightProperty());
 		
 	}
+	
 	
 }

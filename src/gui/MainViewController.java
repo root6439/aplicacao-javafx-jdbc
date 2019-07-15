@@ -50,17 +50,27 @@ public class MainViewController implements Initializable{
 	private synchronized void loadView(String absoluteName) {
 		try {
 			
+			//abrir recurso do arquivo enviado como parametro
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			
 			VBox newVBox = loader.load();
 			
+			//pegar referencia da cena 
 			Scene mainScene = Main.getMainScene();
+			
+			//operação pra pegar o conteudo da tela
 			VBox mainVBox = (VBox)((ScrollPane) mainScene.getRoot()).getContent();
 			
+			//pegar primeiro filho do vbox da janela principal
 			Node mainMenu = mainVBox.getChildren().get(0);
+			
+			//limoar todos os filhos do main vbox
 			mainVBox.getChildren().clear();
 			
+			//adicionar o main menu
 			mainVBox.getChildren().add(mainMenu);
+			
+			//adicionar coleção, no caso os filhos da janela que se quer abrir
 			mainVBox.getChildren().addAll(newVBox.getChildren());
 			
 		} catch (IOException e) {
