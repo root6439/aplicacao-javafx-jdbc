@@ -29,7 +29,7 @@ public class Main extends Application {
 		}
 	}
 	
-	//pegar referencia da cena principal
+	
 	public static Scene getMainScene() {
 		return mainScene;
 	}
